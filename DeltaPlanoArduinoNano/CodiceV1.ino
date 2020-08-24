@@ -93,7 +93,26 @@ void loop() {
 void read(int& storing_var, const int pin_input_val) {
     storing_var = digitalRead(pin_input_val);
 }
+
 //Calcolo della scelta
 int calcola_scelta() {
     return (bstate_1 << 1) + (bstate_2 << 0) ;
 }
+
+/// <summary>
+/// Modifica la posizione dei reley
+/// ATTENZIONE ALLA POSIZIONE
+/// 4 3 2 R1   -->   USB
+/// </summary>
+/// <param name="state_rout4"></param>
+/// <param name="state_rout3"></param>
+/// <param name="state_rout2"></param>
+/// <param name="state_rout1"></param>
+void set_releys(int state_rout4, int state_rout3, int state_rout2, int state_rout1) {
+    //Impostazione dei reley
+    digitalWrite(aout8_rin1, state_rout1);
+    digitalWrite(aout9_rin2, state_rout2);
+    digitalWrite(aout10_rin3, state_rout3);
+    digitalWrite(aout11_rin4, state_rout4);
+}
+
