@@ -22,7 +22,7 @@ int bstate_2 = 0;
 int prev_bstate1 = -1;
 int prev_bstate2 = -1;
 bool state_changed = true;
-#define ACCESSO HIGH
+#define ACCESO HIGH
 #define SPENTO  LOW
 //MODALITA
 constexpr int NO_POWER = 1, POWER_RADIO_NOISE = 3, BATTERY_NO_NOISE = 2, IMPOSSIBLE = 0;
@@ -41,6 +41,8 @@ void setup() {
     
     //Debug monitor
     Serial.begin(9600);
+    Serial.println("-- Benvenuto Mauro --");
+    Serial.println("Info: ");
 }
 
 void loop() {
@@ -62,15 +64,21 @@ void loop() {
         switch (scelta) {
         case NO_POWER:
             Serial.print(scelta); Serial.println(" NO_POWER");
-            //TODO
+
+            set_releys(SPENTO, SPENTO, SPENTO, SPENTO);
+
             break;
         case POWER_RADIO_NOISE:
             Serial.print(scelta); Serial.println(" POWER_RADIO_NOISE");
-            //TODO
+
+            set_releys(ACCESO, SPENTO, SPENTO, SPENTO);
+
             break;
         case BATTERY_NO_NOISE:
             Serial.print(scelta); Serial.println(" BATTERY_NO_NOISE");
-            //TODO
+
+            set_releys(ACCESO, SPENTO, ACCESO, ACCESO);
+
             break;
         case IMPOSSIBLE:
             Serial.print(scelta); Serial.println(" IMPOSSIBLE");
