@@ -1,8 +1,5 @@
-﻿/*
- Name:	    CodiceV1.ino
- Created:	8/24/2020 2:04:33 PM
- Author:	giovannirasera
-*/
+
+
 
 /// <summary>
 /// Connessione al Reley Shield 
@@ -71,13 +68,15 @@ void loop() {
         case POWER_RADIO_NOISE:
             Serial.print(scelta); Serial.println(" POWER_RADIO_NOISE");
 
-            set_releys(ACCESO, SPENTO, SPENTO, SPENTO);
+            set_releys(ACCESO, SPENTO, ACCESO, ACCESO);
+            //set_releys(ACCESO, SPENTO, SPENTO, SPENTO);
 
             break;
         case BATTERY_NO_NOISE:
             Serial.print(scelta); Serial.println(" BATTERY_NO_NOISE");
 
-            set_releys(ACCESO, SPENTO, ACCESO, ACCESO);
+            set_releys(ACCESO, SPENTO, SPENTO, SPENTO);
+            //set_releys(ACCESO, SPENTO, ACCESO, ACCESO);
 
             break;
         case IMPOSSIBLE:
